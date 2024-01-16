@@ -12,8 +12,9 @@ export const AutoCompleteInput = () => {
     }
 
     const handler = setTimeout(() => {
+      const sanitizedValue = inputValue.replace(/[^a-zA-Z0-9 ]/g, "");
       const filteredData = userNames.filter((userName) =>
-        userName.toLowerCase().includes(inputValue.toLowerCase())
+        userName.toLowerCase().includes(sanitizedValue.toLowerCase())
       );
       setSuggestions(filteredData);
     }, 500);
